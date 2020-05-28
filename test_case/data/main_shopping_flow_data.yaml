@@ -1,0 +1,4 @@
+#main_shopping_flow_page页面中用到的测试数据
+userdata:
+  testphone: "18733620762"
+  testskuName: "广西金凤梨菠萝"
