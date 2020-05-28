@@ -36,5 +36,13 @@ class TestConsigneeAddress:
     def test_edit_address(self):
         pass
 
-    def test_delete_address(self):
-        pass
+    def test_delete_address(self,init_driver):
+        """
+        1、点击底部导航栏的我的铵扭
+        2、滑屏点击收货地址按钮
+        3、点击收货人列表中的编辑按钮，再点击删除按钮
+        4、断言
+        :param init_driver:
+        :return:
+        """
+        assert init_driver.main().goto_profile().goto_consignee_address().delete_address() == True
