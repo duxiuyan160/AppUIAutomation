@@ -1,0 +1,6 @@
+#新增收货地址页面的测试数据
+-
+  consignee: "收货人"
+  consigneephone: "16901273158"
+  consigneeaddress: "河北 廊坊 三河市 燕郊镇"
+  consigneedetailsaddress: "首尔甜城林荫大道20号楼1单号2801"
