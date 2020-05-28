@@ -12,7 +12,7 @@ class BasePage:
     _driver: WebDriver = None
     # 黑名单列表
     _back_list = [
-        (By.ID, "com.tojoy.huzhugou:id/btn_pos"),  # 主页面弹出的条款框中的同意按钮]
+        (By.ID, "com.tojoy.huzhugou:id/btn_pos")  # 主页面弹出的条款框中的同意按钮
     ]
     # 计数器
     _max_num = 3
@@ -72,6 +72,11 @@ class BasePage:
     def get_text(self, element: WebElement):
         return element.text
 
+    # 读取yaml文件方法
+    def read_yamldata(self, filename, section, option1):
+        with open(filename, encoding="utf8") as f:
+            self.datas = yaml.full_load(f)
+            return self.datas[section][option1]
     # 滑屏
     def do_Scroll(self, value):
         self._driver.find_element_by_android_uiautomator('new UiScrollable('
