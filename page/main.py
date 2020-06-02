@@ -6,10 +6,15 @@ from selenium.webdriver.common.by import By
 from page.base_page import BasePage
 from page.main_shopping_flow.main_shopping_flow_page import MainShoppingFlowPage
 from page.profile.profile_page import ProfilePage
+from page.shopping_mall.shopping_mall_page import ShoppingMallPage
 
 
 class Main(BasePage):
     _btn_my = (By.ID, "com.tojoy.huzhugou:id/navigation_me")  # 底部导航栏我的按钮
+
+    # 跳转到商城页面
+    def goto_shoppingmall(self):
+        return ShoppingMallPage(self._driver)
 
     # 跳转主流程购物页面
     def goto_mainshoppingflow(self):
