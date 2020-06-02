@@ -26,6 +26,9 @@ class App(BasePage):
         self._driver.implicitly_wait(15)
         return self
 
+    def quit(self):
+        self._driver.quit()
+
     # 跳转至主页面
     def main(self) -> Main:
         return Main(self._driver)
