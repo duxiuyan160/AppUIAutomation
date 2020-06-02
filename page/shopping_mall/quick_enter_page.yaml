@@ -1,0 +1,32 @@
+#把quickenter的type值传进来，以便进入相应的页面
+quickentertype:
+  - by: xpath
+    locator: '//*[@resource-id="com.tojoy.huzhugou:id/tv_title" and @text="${name}"]'
+    action: click
+
+#商品展示--》加入购物车--》加数量--》结算--》提交订单
+common:
+  - by: xpath
+    locator: '//*[@id="wrapper"]//div//*[@class="shopItemTitle" and contains(text(),"${name}")]'
+    action: webview_click
+  - by: id
+    locator: 'com.tojoy.huzhugou:id/tv_add_to_Cart'
+    action: click
+  - by: id
+    locator: 'com.tojoy.huzhugou:id/button_add'
+    action: click
+  - by: id
+    locator: 'com.tojoy.huzhugou:id/tv_confirm'
+    action: click
+  - by: id
+    locator: 'com.tojoy.huzhugou:id/iv_purchase'
+    action: click
+  - by: id
+    locator: 'com.tojoy.huzhugou:id/relati_Settlement'
+    action: click
+  - by: id
+    locator: 'com.tojoy.huzhugou:id/rel_commitOrder'
+    action: click
+  - by: id
+    locator: 'com.tojoy.huzhugou:id/test_Time'
+    action: getText
