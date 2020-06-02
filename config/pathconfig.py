@@ -8,5 +8,10 @@ CONFIG_DIR = os.path.join(BASE_DIR, "test_case/data")
 MAIN_SHOPPING_FLOW_DATA_PATH = os.path.join(CONFIG_DIR, "main_shopping_flow_data.yaml")
 
 # 获取我的->收货地址->新增收货地址测试数据文件所在路径
-TESTCASE_DATA_DIR = os.path.join(BASE_DIR, "test_case/data")
-ADD_ADDRESS_DATA_PATH = os.path.join(TESTCASE_DATA_DIR, "add_address_data.yaml")
+ADD_ADDRESS_DATA_PATH = os.path.join(CONFIG_DIR, "test_add_address_data.yaml")
+
+# 获取商城->quickenter测试用例所用数据文件所在路径
+TEST_SHOPPING_MALL_QUICKENTER_DATA = os.path.join(CONFIG_DIR, "test_shopping_mall_quickenter_data.yaml")
+
+#获取商城quickenter页面元素行为的文件所在路径
+STEP_QUICK_ENTER_PAGE_YAML = os.path.join(BASE_DIR, "page/shopping_mall/quick_enter_page.yaml")
