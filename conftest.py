@@ -5,7 +5,7 @@ from appium import webdriver
 from page.app import App
 
 
-@pytest.fixture("class")
+@pytest.fixture()
 def init_driver():
     """
     实例化driver
@@ -14,3 +14,4 @@ def init_driver():
     app = App()
     driver = app.start()
     yield driver
+    #app.quit()

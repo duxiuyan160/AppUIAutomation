@@ -1,3 +1,5 @@
+import logging
+
 from selenium.webdriver.common.by import By
 
 
@@ -13,12 +15,14 @@ def handle_black(func):
         _error_num = 0
         instance: BasePage = args[0]  # 到取self的传值
         try:
+            logging.info("run " + func.__name__ + "\n args: \n" + repr(args[1:]) + "\n" + repr(kwargs))
             element = func(*args, **kwargs)
             _error_num = 0
             #隐式等待回复原来的等待
             instance._driver.implicitly_wait(10)
             return element
         except Exception as e:
+            logging.error("element not found, handle black list")
             # 出现异常，将隐式等待设置小一点
             instance._driver.implicitly_wait(1)
             # 判断异常处理次数
@@ -29,8 +33,7 @@ def handle_black(func):
                 elements = instance.finds(*black)
                 if len(elements) > 0:
                     elements[0].click()
-                    break
-            # 处理完黑名单后，再次找原来的元素
-            return wrapper(*args, **kwargs)
-
+                    # 处理完黑名单后，再次找原来的元素
+                    return wrapper(*args, **kwargs)
+            raise e
     return wrapper
