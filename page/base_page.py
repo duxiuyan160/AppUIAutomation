@@ -32,14 +32,22 @@ class BasePage:
     # 通过find_element查找元素
     @handle_black
     def find(self, locator, value):
-        element = self._driver.find_element(locator, value)
+        element: WebElement
+        if isinstance(locator, tuple):  # 如果是元组
+            element = self._driver.find_element(*locator)
+        else:
+            element = self._driver.find_element(locator, value)
         return element
 
     # 通过finds_element查找元素
     @handle_black
     def finds(self, locator, value):
-        element = self._driver.find_elements(locator, value)
-        return element
+        elements: list
+        if isinstance(locator, tuple):  # 如果是元组
+            elements = self._driver.find_elements(*locator)
+        else:
+            elements = self._driver.find_elements(locator, value)
+        return elements
 
     # 点击事件封装
     def click(self, element: WebElement):
